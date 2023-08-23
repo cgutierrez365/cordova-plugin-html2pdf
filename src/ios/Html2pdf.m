@@ -61,7 +61,7 @@
     self.pageMargins = UIEdgeInsetsMake(10, 5, 10, 5);
     
     // Load page into a webview and use its formatter to print the page
-    UIWebView* webPage    = [[UIWebView alloc] init];
+    WKWebView* webPage    = [[WKWebView alloc] init];
     webPage.delegate = self;
     webPage.frame = CGRectMake(0, 0, 1, 1); // Make web view small ...
     webPage.alpha = 0.0;                    // ... and invisible.
@@ -96,7 +96,7 @@
     [self.commandDelegate sendPluginResult:result callbackId:command.callbackId];
 }
 
-- (void)webViewDidFinishLoad:(UIWebView *)webView
+- (void)webViewDidFinishLoad:(WKWebView *)webView
 {
     NSLog(@"Html2Pdf webViewDidFinishLoad");
     
@@ -150,7 +150,7 @@
 
 }
 
-- (void)webView:(UIWebView *)webView didFailLoadWithError:(NSError *)error
+- (void)webView:(WKWebView *)webView didFailLoadWithError:(NSError *)error
 {
     NSLog(@"webViewDidFailLoadWithError");
     
